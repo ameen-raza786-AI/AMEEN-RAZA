@@ -1,0 +1,288 @@
+{
+  "entities": {
+    "AdminRecord": {
+      "title": "AdminRecord",
+      "description": "Authorized boutique administrator registry.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp via FieldValue.serverTimestamp()" }
+      },
+      "required": ["uid", "email", "createdAt"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Authenticated customer profile and shipping details.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "city": { "type": "string" },
+        "postalCode": { "type": "string" },
+        "photoUrl": { "type": "string" },
+        "totalOrders": { "type": "integer" },
+        "totalSpent": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp via FieldValue.serverTimestamp()" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp via FieldValue.serverTimestamp()" }
+      },
+      "required": ["userId", "displayName", "email", "totalOrders", "totalSpent", "createdAt"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "Ethnic wear product category.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "imageKey": { "type": "string" },
+        "sortOrder": { "type": "integer" },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "subtitle", "imageKey", "sortOrder", "isActive", "createdAt"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Luxury ethnic wear garment with pricing, sizes, fabric, colors, and customization options.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "collections": { "type": "array" },
+        "images": { "type": "array" },
+        "price": { "type": "number" },
+        "discountPrice": { "type": "number" },
+        "isSpecialOffer": { "type": "boolean" },
+        "offerBadge": { "type": "string" },
+        "sizes": { "type": "array" },
+        "colors": { "type": "array" },
+        "fabric": { "type": "string" },
+        "customStitchingAvailable": { "type": "boolean" },
+        "madeToOrder": { "type": "boolean" },
+        "estimatedDelivery": { "type": "string" },
+        "stockCount": { "type": "integer" },
+        "rating": { "type": "number" },
+        "reviewCount": { "type": "integer" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "name",
+        "description",
+        "category",
+        "collections",
+        "images",
+        "price",
+        "discountPrice",
+        "isSpecialOffer",
+        "sizes",
+        "colors",
+        "fabric",
+        "customStitchingAvailable",
+        "madeToOrder",
+        "estimatedDelivery",
+        "stockCount",
+        "rating",
+        "reviewCount",
+        "isPublished",
+        "createdAt"
+      ]
+    },
+    "Offer": {
+      "title": "Offer",
+      "description": "Promotional discount code and boutique offer.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "promoCode": { "type": "string" },
+        "discountPercent": { "type": "integer" },
+        "minOrderAmount": { "type": "number" },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "subtitle", "promoCode", "discountPercent", "minOrderAmount", "isActive", "createdAt"]
+    },
+    "CartItem": {
+      "title": "CartItem",
+      "description": "Shopping cart item scoped to user.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "productId": { "type": "string" },
+        "productName": { "type": "string" },
+        "productImage": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "discountPrice": { "type": "number" },
+        "selectedSize": { "type": "string" },
+        "selectedColor": { "type": "string" },
+        "customStitching": { "type": "boolean" },
+        "madeToOrder": { "type": "boolean" },
+        "customMeasurements": { "type": "string" },
+        "estimatedDelivery": { "type": "string" },
+        "quantity": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "userId",
+        "productId",
+        "productName",
+        "productImage",
+        "category",
+        "price",
+        "discountPrice",
+        "selectedSize",
+        "selectedColor",
+        "customStitching",
+        "madeToOrder",
+        "estimatedDelivery",
+        "quantity",
+        "createdAt"
+      ]
+    },
+    "WishlistItem": {
+      "title": "WishlistItem",
+      "description": "Saved wishlist product scoped to user.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "productId": { "type": "string" },
+        "productName": { "type": "string" },
+        "productImage": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "discountPrice": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "productId", "productName", "productImage", "category", "price", "discountPrice", "createdAt"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer order with line items, payment method, and fulfillment tracking.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "orderNumber": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "shippingAddress": { "type": "string" },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "discountAmount": { "type": "number" },
+        "shippingFee": { "type": "number" },
+        "totalAmount": { "type": "number" },
+        "promoCode": { "type": "string" },
+        "paymentMethod": { "type": "string", "enum": ["UPI / Online", "Card / NetBanking", "Cash on Delivery"] },
+        "paymentStatus": { "type": "string", "enum": ["Paid", "Pending on Delivery", "Refunded"] },
+        "transactionId": { "type": "string" },
+        "status": { "type": "string", "enum": ["Placed", "Confirmed", "Stitching", "Quality Check", "Shipped", "Delivered", "Cancelled"] },
+        "trackingNote": { "type": "string" },
+        "estimatedDelivery": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "userId",
+        "orderNumber",
+        "customerName",
+        "customerEmail",
+        "customerPhone",
+        "shippingAddress",
+        "items",
+        "subtotal",
+        "discountAmount",
+        "shippingFee",
+        "totalAmount",
+        "paymentMethod",
+        "paymentStatus",
+        "status",
+        "estimatedDelivery",
+        "createdAt"
+      ]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Customer product review and rating.",
+      "type": "object",
+      "properties": {
+        "productId": { "type": "string" },
+        "userId": { "type": "string" },
+        "reviewerName": { "type": "string" },
+        "rating": { "type": "integer" },
+        "comment": { "type": "string" },
+        "isApproved": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["productId", "userId", "reviewerName", "rating", "comment", "isApproved", "createdAt"]
+    },
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "Customer support or bespoke styling inquiry.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "subject": { "type": "string" },
+        "message": { "type": "string" },
+        "status": { "type": "string", "enum": ["Open", "Resolved"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name", "email", "subject", "message", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/admins/{adminId}": {
+      "schema": { "$ref": "#/entities/AdminRecord" },
+      "description": "Admin authorization registry."
+    },
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Customer profile and shipping PII."
+    },
+    "/users/{userId}/cart/{cartItemId}": {
+      "schema": { "$ref": "#/entities/CartItem" },
+      "description": "Per-user shopping bag items."
+    },
+    "/users/{userId}/wishlist/{productId}": {
+      "schema": { "$ref": "#/entities/WishlistItem" },
+      "description": "Per-user saved wishlist items."
+    },
+    "/categories/{categoryId}": {
+      "schema": { "$ref": "#/entities/Category" },
+      "description": "Store ethnic wear categories."
+    },
+    "/products/{productId}": {
+      "schema": { "$ref": "#/entities/Product" },
+      "description": "Boutique product catalog."
+    },
+    "/offers/{offerId}": {
+      "schema": { "$ref": "#/entities/Offer" },
+      "description": "Store discount codes and special offers."
+    },
+    "/orders/{orderId}": {
+      "schema": { "$ref": "#/entities/Order" },
+      "description": "Customer orders and tracking."
+    },
+    "/reviews/{reviewId}": {
+      "schema": { "$ref": "#/entities/Review" },
+      "description": "Product customer reviews."
+    },
+    "/inquiries/{inquiryId}": {
+      "schema": { "$ref": "#/entities/Inquiry" },
+      "description": "Customer Contact Us inquiries."
+    }
+  }
+}

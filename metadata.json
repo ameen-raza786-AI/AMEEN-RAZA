@@ -1,0 +1,6 @@
+{
+  "name": "Raza Ethnic Wear",
+  "description": "Luxury Indian women's ethnic wear shopping app featuring bridal lehengas, Pakistani & Anarkali suits, sarees, WhatsApp ordering, order tracking, and an admin dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

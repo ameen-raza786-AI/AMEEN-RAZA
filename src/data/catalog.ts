@@ -1,0 +1,400 @@
+export interface CategoryItem {
+  id: string;
+  name: string;
+  subtitle: string;
+  image: string;
+}
+
+export interface ProductItem {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  collections: string[];
+  images: string[];
+  price: number;
+  discountPrice: number;
+  isSpecialOffer: boolean;
+  offerBadge: string;
+  sizes: string[];
+  colors: string[];
+  fabric: string;
+  customStitchingAvailable: boolean;
+  madeToOrder: boolean;
+  estimatedDelivery: string;
+  stockCount: number;
+  rating: number;
+  reviewCount: number;
+}
+
+export interface OfferItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  promoCode: string;
+  discountPercent: number;
+  minOrderAmount: number;
+}
+
+export interface ReviewItem {
+  id: string;
+  productId: string;
+  reviewerName: string;
+  rating: number;
+  comment: string;
+}
+
+export const BOUTIQUE_WHATSAPP_NUMBER = "919876543210";
+export const BOUTIQUE_INSTAGRAM_URL = "https://www.instagram.com/razaethnicwear/";
+
+export const HOMEPAGE_SECTIONS = [
+  "New Arrivals",
+  "Best Selling",
+  "Trending Lehenga",
+  "Exclusive Gharara",
+  "Designer Suits",
+  "Special Offers",
+];
+
+export const CATEGORIES: CategoryItem[] = [
+  {
+    id: "cat_bridal_lehenga",
+    name: "Bridal Lehenga",
+    subtitle: "Heirloom zardozi & royal velvet couture",
+    image: "./images/img_hero_bridal.jpg",
+  },
+  {
+    id: "cat_party_wear_lehenga",
+    name: "Party Wear Lehenga",
+    subtitle: "Mirrorwork & shimmer cocktail drapes",
+    image: "./images/img_lehenga_emerald.jpg",
+  },
+  {
+    id: "cat_designer_lehenga",
+    name: "Designer Lehenga",
+    subtitle: "Runway silhouettes with intricate gota patti",
+    image: "./images/img_hero_bridal.jpg",
+  },
+  {
+    id: "cat_pakistani_suits",
+    name: "Pakistani Suits",
+    subtitle: "Regal organza, tilla & resham ensembles",
+    image: "./images/img_suit_ivory.jpg",
+  },
+  {
+    id: "cat_anarkali_suits",
+    name: "Anarkali Suits",
+    subtitle: "Floor-sweeping kalidar heritage gowns",
+    image: "./images/img_suit_ivory.jpg",
+  },
+  {
+    id: "cat_sharara_suits",
+    name: "Sharara Suits",
+    subtitle: "Festive flared silhouettes with zari borders",
+    image: "./images/img_lehenga_emerald.jpg",
+  },
+  {
+    id: "cat_gharara_suits",
+    name: "Gharara Suits",
+    subtitle: "Nawabi Lucknawi craft with pleated flare",
+    image: "./images/img_suit_ivory.jpg",
+  },
+  {
+    id: "cat_designer_gowns",
+    name: "Designer Gowns",
+    subtitle: "Indo-western obsidian & gold reception drapes",
+    image: "./images/img_saree_obsidian.jpg",
+  },
+  {
+    id: "cat_sarees",
+    name: "Sarees",
+    subtitle: "Pure Banarasi brocade & handwoven silk",
+    image: "./images/img_saree_obsidian.jpg",
+  },
+];
+
+export const PRODUCTS: ProductItem[] = [
+  {
+    id: "prod_begum_crimson_bridal",
+    name: "Begum Crimson Zardozi Bridal Lehenga",
+    description:
+      "Opulent micro-velvet bridal lehenga hand-embroidered with antique gold dabka, resham motifs, and silver zari borders. Paired with a double organza scalloped dupatta.",
+    category: "Bridal Lehenga",
+    collections: ["New Arrivals", "Best Selling", "Trending Lehenga"],
+    images: ["./images/img_hero_bridal.jpg", "./images/img_lehenga_emerald.jpg"],
+    price: 68500,
+    discountPrice: 54999,
+    isSpecialOffer: true,
+    offerBadge: "20% OFF",
+    sizes: ["XS", "S", "M", "L", "XL", "Custom"],
+    colors: ["Royal Crimson", "Deep Maroon", "Wine Gold"],
+    fabric: "Pure Micro Velvet & Silk Organza Dupatta",
+    customStitchingAvailable: true,
+    madeToOrder: true,
+    estimatedDelivery: "14–18 business days",
+    stockCount: 6,
+    rating: 4.9,
+    reviewCount: 34,
+  },
+  {
+    id: "prod_noor_emerald_lehenga",
+    name: "Noor Emerald Mirrorwork Party Lehenga",
+    description:
+      "Rich emerald velvet lehenga adorned with hand-cut sheesha mirrorwork, metallic silver kasab, and pearl tassels for sangeet and reception nights.",
+    category: "Party Wear Lehenga",
+    collections: ["New Arrivals", "Trending Lehenga", "Special Offers"],
+    images: ["./images/img_lehenga_emerald.jpg", "./images/img_hero_bridal.jpg"],
+    price: 32000,
+    discountPrice: 24999,
+    isSpecialOffer: true,
+    offerBadge: "FESTIVE 22%",
+    sizes: ["XS", "S", "M", "L", "XL", "XXL", "Custom"],
+    colors: ["Emerald Green", "Midnight Sapphire", "Plum Silver"],
+    fabric: "Silk Velvet with Net Embroidered Dupatta",
+    customStitchingAvailable: true,
+    madeToOrder: false,
+    estimatedDelivery: "6–8 business days",
+    stockCount: 12,
+    rating: 4.8,
+    reviewCount: 27,
+  },
+  {
+    id: "prod_maharani_designer_lehenga",
+    name: "Maharani Heritage Gota Patti Lehenga",
+    description:
+      "Regal 24-kali designer lehenga showcasing Rajasthani gota patti, kundan florets, and silver-gold badla detailing on raw silk.",
+    category: "Designer Lehenga",
+    collections: ["Best Selling", "Trending Lehenga"],
+    images: ["./images/img_hero_bridal.jpg", "./images/img_suit_ivory.jpg"],
+    price: 45000,
+    discountPrice: 39500,
+    isSpecialOffer: false,
+    offerBadge: "ATELIER PICK",
+    sizes: ["S", "M", "L", "XL", "Custom"],
+    colors: ["Sindoor Red", "Rani Pink", "Champagne Gold"],
+    fabric: "Pure Mulberry Raw Silk",
+    customStitchingAvailable: true,
+    madeToOrder: true,
+    estimatedDelivery: "10–14 business days",
+    stockCount: 8,
+    rating: 4.9,
+    reviewCount: 19,
+  },
+  {
+    id: "prod_zoya_ivory_pakistani",
+    name: "Zoya Ivory & Champagne Pakistani Suit",
+    description:
+      "Signature Pakistani couture ensemble featuring intricate tilla, dabka, and pearl handwork over ivory silk tissue with a sheer scalloped organza dupatta.",
+    category: "Pakistani Suits",
+    collections: ["New Arrivals", "Designer Suits", "Best Selling"],
+    images: ["./images/img_suit_ivory.jpg", "./images/img_saree_obsidian.jpg"],
+    price: 18500,
+    discountPrice: 14999,
+    isSpecialOffer: true,
+    offerBadge: "19% OFF",
+    sizes: ["S", "M", "L", "XL", "XXL", "Custom"],
+    colors: ["Royal Ivory", "Champagne Mist", "Rosewood"],
+    fabric: "Pure Korean Raw Silk & Organza",
+    customStitchingAvailable: true,
+    madeToOrder: false,
+    estimatedDelivery: "5–7 business days",
+    stockCount: 18,
+    rating: 4.9,
+    reviewCount: 41,
+  },
+  {
+    id: "prod_mehar_anarkali_suit",
+    name: "Mehar Royal Floor-Length Anarkali Suit",
+    description:
+      "Flowing 18-panel ivory and antique gold kalidar Anarkali tailored with hand-woven zari yoke and delicate sitara work for walima and festive evenings.",
+    category: "Anarkali Suits",
+    collections: ["Designer Suits", "Best Selling"],
+    images: ["./images/img_suit_ivory.jpg", "./images/img_lehenga_emerald.jpg"],
+    price: 22000,
+    discountPrice: 18499,
+    isSpecialOffer: false,
+    offerBadge: "SIGNATURE",
+    sizes: ["XS", "S", "M", "L", "XL", "Custom"],
+    colors: ["Ivory Gold", "Obsidian Gold", "Pearl Sage"],
+    fabric: "Pure Chanderi Silk & Mulmul Lining",
+    customStitchingAvailable: true,
+    madeToOrder: true,
+    estimatedDelivery: "8–12 business days",
+    stockCount: 10,
+    rating: 4.8,
+    reviewCount: 22,
+  },
+  {
+    id: "prod_sitara_sharara_suit",
+    name: "Sitara Emerald & Silver Sharara Suit",
+    description:
+      "Festive three-piece sharara set featuring a jewel-toned short kurti with silver zardozi motifs and wide-flared crushed tissue sharara.",
+    category: "Sharara Suits",
+    collections: ["New Arrivals", "Designer Suits", "Special Offers"],
+    images: ["./images/img_lehenga_emerald.jpg", "./images/img_suit_ivory.jpg"],
+    price: 16500,
+    discountPrice: 12999,
+    isSpecialOffer: true,
+    offerBadge: "21% OFF",
+    sizes: ["S", "M", "L", "XL", "Custom"],
+    colors: ["Emerald Silver", "Teal Gold", "Ruby Wine"],
+    fabric: "Georgette Kurti & Crushed Zari Tissue",
+    customStitchingAvailable: true,
+    madeToOrder: false,
+    estimatedDelivery: "5–7 business days",
+    stockCount: 15,
+    rating: 4.7,
+    reviewCount: 16,
+  },
+  {
+    id: "prod_nawabi_gharara_suit",
+    name: "Nawabi Lucknawi Heritage Gharara Suit",
+    description:
+      "Authentic Awadhi gharara crafted with antique gold kamdani, gota edging at the knee flare, and a sweeping hand-tasseled net dupatta.",
+    category: "Gharara Suits",
+    collections: ["Exclusive Gharara", "Best Selling", "Designer Suits"],
+    images: ["./images/img_suit_ivory.jpg", "./images/img_hero_bridal.jpg"],
+    price: 26500,
+    discountPrice: 21999,
+    isSpecialOffer: true,
+    offerBadge: "EXCLUSIVE",
+    sizes: ["XS", "S", "M", "L", "XL", "Custom"],
+    colors: ["Ivory Antique Gold", "Nizam Crimson", "Mint Zari"],
+    fabric: "Pure Brocade Silk & Organza",
+    customStitchingAvailable: true,
+    madeToOrder: true,
+    estimatedDelivery: "9–13 business days",
+    stockCount: 9,
+    rating: 4.9,
+    reviewCount: 29,
+  },
+  {
+    id: "prod_shahnaz_gharara_emerald",
+    name: "Shahnaz Velvet Zari Gharara Ensemble",
+    description:
+      "Royal winter wedding gharara featuring deep emerald silk velvet kurta with silver-gold badla detailing and pleated gharara bottoms.",
+    category: "Gharara Suits",
+    collections: ["Exclusive Gharara", "New Arrivals"],
+    images: ["./images/img_lehenga_emerald.jpg", "./images/img_saree_obsidian.jpg"],
+    price: 29000,
+    discountPrice: 25499,
+    isSpecialOffer: false,
+    offerBadge: "LIMITED",
+    sizes: ["S", "M", "L", "XL", "Custom"],
+    colors: ["Emerald Gold", "Obsidian Silver"],
+    fabric: "Silk Velvet & Zari Brocade",
+    customStitchingAvailable: true,
+    madeToOrder: true,
+    estimatedDelivery: "10–14 business days",
+    stockCount: 7,
+    rating: 4.8,
+    reviewCount: 14,
+  },
+  {
+    id: "prod_raat_obsidian_gown",
+    name: "Raat Obsidian & Metallic Gold Couture Gown",
+    description:
+      "Sculpted Indo-western reception gown in midnight black Banarasi brocade with metallic silver and royal gold paisley weave and draped cape sleeves.",
+    category: "Designer Gowns",
+    collections: ["New Arrivals", "Special Offers"],
+    images: ["./images/img_saree_obsidian.jpg", "./images/img_hero_bridal.jpg"],
+    price: 34000,
+    discountPrice: 27999,
+    isSpecialOffer: true,
+    offerBadge: "RUNWAY 18%",
+    sizes: ["XS", "S", "M", "L", "XL", "Custom"],
+    colors: ["Obsidian Gold", "Charcoal Silver"],
+    fabric: "Katan Banarasi Brocade & Satin Lining",
+    customStitchingAvailable: true,
+    madeToOrder: true,
+    estimatedDelivery: "10–14 business days",
+    stockCount: 11,
+    rating: 4.9,
+    reviewCount: 21,
+  },
+  {
+    id: "prod_kashi_obsidian_saree",
+    name: "Kashi Midnight Banarasi Zari Silk Saree",
+    description:
+      "Handloom pure Katan silk saree in jet black woven with dual-tone silver and antique gold zari kadhua motifs and a grand bridal pallu. Includes unstitched brocade blouse piece.",
+    category: "Sarees",
+    collections: ["Best Selling", "New Arrivals", "Special Offers"],
+    images: ["./images/img_saree_obsidian.jpg", "./images/img_suit_ivory.jpg"],
+    price: 24500,
+    discountPrice: 19999,
+    isSpecialOffer: true,
+    offerBadge: "HANDLOOM 18%",
+    sizes: ["Free Size (5.5m + Blouse)", "Custom Blouse Stitching"],
+    colors: ["Obsidian Silver-Gold", "Crimson Zari", "Royal Ivory"],
+    fabric: "100% Pure Katan Banarasi Silk",
+    customStitchingAvailable: true,
+    madeToOrder: false,
+    estimatedDelivery: "4–6 business days",
+    stockCount: 14,
+    rating: 5.0,
+    reviewCount: 38,
+  },
+];
+
+export const OFFERS: OfferItem[] = [
+  {
+    id: "offer_royal15",
+    title: "Royal Festive Privilege",
+    subtitle: "15% instant savings on orders above ₹15,000",
+    promoCode: "RAZA15",
+    discountPercent: 15,
+    minOrderAmount: 15000,
+  },
+  {
+    id: "offer_bridal10",
+    title: "Bridal Trousseau Atelier Offer",
+    subtitle: "Extra 10% off custom-stitched bridal & gharara couture",
+    promoCode: "BRIDAL10",
+    discountPercent: 10,
+    minOrderAmount: 10000,
+  },
+];
+
+export const REVIEWS: ReviewItem[] = [
+  {
+    id: "rev_1",
+    productId: "prod_begum_crimson_bridal",
+    reviewerName: "Aaliya Siddiqui",
+    rating: 5,
+    comment:
+      "The zardozi detail in person is breathtaking. Custom blouse stitching fit like a dream on the very first trial.",
+  },
+  {
+    id: "rev_2",
+    productId: "prod_nawabi_gharara_suit",
+    reviewerName: "Mehwish Khan",
+    rating: 5,
+    comment:
+      "True Lucknawi craftsmanship. The silver-gold tissue shimmer looked regal under evening lighting.",
+  },
+  {
+    id: "rev_3",
+    productId: "prod_kashi_obsidian_saree",
+    reviewerName: "Kavya Malhotra",
+    rating: 5,
+    comment:
+      "Jet black with silver and gold zari looks ultra-luxurious. Received endless compliments at the reception.",
+  },
+];
+
+export function formatInr(amount: number): string {
+  return "₹" + Math.round(amount).toLocaleString("en-IN");
+}
+
+export function getDiscountPercent(product: ProductItem): number {
+  if (product.price > 0 && product.discountPrice > 0 && product.discountPrice < product.price) {
+    return Math.round(((product.price - product.discountPrice) / product.price) * 100);
+  }
+  return 0;
+}
+
+export function getEffectivePrice(product: ProductItem): number {
+  return product.discountPrice > 0 && product.discountPrice <= product.price
+    ? product.discountPrice
+    : product.price;
+}
